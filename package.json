@@ -1,8 +1,0 @@
-{
-  "name": "houston-city-dental",
-  "version": "1.0.0",
-  "description": "Houston City Dental - Luxury Private Dental Care Website",
-  "scripts": {
-    "dev": "node server.js"
-  }
-}
