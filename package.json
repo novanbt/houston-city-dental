@@ -2,18 +2,7 @@
   "name": "houston-city-dental",
   "version": "1.0.0",
   "description": "Houston City Dental - Luxury Private Dental Care Website",
-  "main": "server.js",
   "scripts": {
-    "start": "node server.js",
     "dev": "node server.js"
-  },
-  "keywords": [
-    "dental",
-    "dentist",
-    "houston",
-    "luxury-dental",
-    "private-practice"
-  ],
-  "author": "Houston City Dental",
-  "license": "MIT"
+  }
 }
