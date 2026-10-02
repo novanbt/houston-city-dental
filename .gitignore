@@ -31,3 +31,6 @@ desktop.ini
 # Logs
 logs/
 *.log
+
+# Local dev server
+server.js
