@@ -637,39 +637,401 @@ h4 {
   transform: scale(1.02);
 }
 
-/* Floating Badges */
-.floating-card {
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(12px);
-  padding: 0.9rem 1.2rem;
-  border-radius: var(--border-radius-md);
-  border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-card);
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  z-index: 2;
-}
-
-.floating-card-bottom {
-  bottom: -20px;
-  left: 20px;
-}
-
 /* --------------------------------------------------------------------------
-   FRAMER MOTION ENHANCEMENTS FOR HERO SECTION
-   Spring physics, continuous ambient levitation, and interactive micro-interactions
+   FRAMER MOTION: DENTAL CLINIC SERVICES INTERACTIVE HERO & 3D SPRING PHYSICS
    -------------------------------------------------------------------------- */
 :root {
   --framer-spring: cubic-bezier(0.16, 1, 0.3, 1);
   --framer-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.hero-section {
-  perspective: 1200px;
+/* Interactive Dental Services Quick-Explorer */
+.framer-services-widget {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius-lg);
+  padding: 1.1rem 1.25rem;
+  box-shadow: 0 4px 20px rgba(31, 72, 80, 0.05);
+  margin-bottom: 2rem;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
+.framer-services-widget:hover {
+  box-shadow: 0 8px 28px rgba(31, 72, 80, 0.08);
+}
+
+.framer-services-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.framer-widget-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-teal);
+  text-transform: uppercase;
+}
+
+.framer-sparkle {
+  color: var(--color-brass);
+  font-size: 0.85rem;
+}
+
+.framer-live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  position: relative;
+}
+
+.pulse-core {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10B981;
+}
+
+.pulse-ring {
+  position: absolute;
+  left: -2px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: rgba(16, 185, 129, 0.4);
+  animation: framer-pulse-ring 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+@keyframes framer-pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* Motion Pill Tabs */
+.framer-tab-bar {
+  display: flex;
+  gap: 6px;
+  background: rgba(31, 72, 80, 0.04);
+  padding: 4px;
+  border-radius: var(--border-radius-full);
+  position: relative;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.framer-tab-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.framer-tab {
+  flex: 1;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.48rem 0.85rem;
+  border-radius: var(--border-radius-full);
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.22s ease;
+  z-index: 1;
+}
+
+.framer-tab.active {
+  color: var(--color-teal-dark);
+  font-weight: 700;
+}
+
+.framer-tab .tab-indicator-bg {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  border-radius: var(--border-radius-full);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.04);
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+}
+
+.framer-tab.active .tab-indicator-bg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Service Preview Box */
+.framer-service-preview {
+  margin-top: 0.9rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.preview-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.25rem;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.preview-desc {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+  margin: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.framer-service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--color-teal);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 0.35rem 0.75rem;
+  background: rgba(20, 184, 166, 0.08);
+  border-radius: var(--border-radius-full);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.framer-service-link:hover {
+  background: rgba(20, 184, 166, 0.16);
+  transform: translateX(2px);
+}
+
+/* 3D Perspective Container on Hero Media */
+.framer-perspective-container {
+  perspective: 1200px;
+  position: relative;
+}
+
+.framer-3d-card {
+  position: relative;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(31, 72, 80, 0.12), 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-light);
+  background-color: var(--color-bg-secondary);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.framer-3d-card:hover {
+  box-shadow: 0 28px 60px rgba(31, 72, 80, 0.18), 0 8px 16px rgba(0, 0, 0, 0.06);
+}
+
+.framer-hero-img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.framer-glass-glare {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 60%);
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* Floating Framer Service Badges */
+.framer-float-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 16px 36px rgba(31, 72, 80, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+  z-index: 5;
+  will-change: transform;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.framer-float-card:hover {
+  box-shadow: 0 22px 44px rgba(31, 72, 80, 0.18);
+  border-color: rgba(31, 72, 80, 0.2);
+}
+
+/* Top Right Badge: 3D Smile Scan */
+.framer-float-top {
+  top: -24px;
+  right: -20px;
+  padding: 0.9rem 1.15rem;
+  max-width: 250px;
+  animation: framer-float-gentle-top 5s ease-in-out infinite alternate;
+}
+
+@keyframes framer-float-gentle-top {
+  0% {
+    transform: translate3d(0, 0, 30px);
+  }
+  100% {
+    transform: translate3d(0, -10px, 30px);
+  }
+}
+
+.framer-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.framer-scan-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(31, 72, 80, 0.12), rgba(197, 160, 89, 0.22));
+  color: var(--color-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.framer-chip-pill {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-teal);
+  background: rgba(20, 184, 166, 0.1);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+
+.framer-card-body .framer-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+}
+
+.framer-card-body .framer-sub {
+  font-size: 0.74rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.15rem;
+}
+
+.framer-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.45rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #10B981;
+}
+
+.framer-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+}
+
+/* Bottom Left Badge: Comprehensive Practice & Services */
+.framer-float-bottom {
+  bottom: -22px;
+  left: -15px;
+  padding: 0.9rem 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  animation: framer-float-gentle-bottom 5.5s ease-in-out infinite alternate;
+}
+
+@keyframes framer-float-gentle-bottom {
+  0% {
+    transform: translate3d(0, 0, 25px);
+  }
+  100% {
+    transform: translate3d(0, 8px, 25px);
+  }
+}
+
+.floating-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-teal-subtle);
+  color: var(--color-teal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.floating-card-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.framer-service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0.35rem 0 0.25rem 0;
+}
+
+.service-tag {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--color-teal);
+  background: rgba(20, 184, 166, 0.08);
+  padding: 0.15rem 0.45rem;
+  border-radius: 999px;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.service-tag:hover {
+  transform: scale(1.08);
+  background: rgba(20, 184, 166, 0.15);
+}
+
+.framer-location-sub {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+/* Micro-spring feedback on buttons and highlights */
 .hero-rating-badge {
   transition: transform 0.35s var(--framer-bounce), box-shadow 0.35s ease;
   will-change: transform;
@@ -702,74 +1064,41 @@ h4 {
   transform: translateY(-2px) scale(1.02);
 }
 
-.hero-media-wrapper {
-  perspective: 1000px;
-  transform-style: preserve-3d;
-}
-
-.hero-image-container {
-  transform-style: preserve-3d;
-  will-change: transform;
-  transition: box-shadow 0.5s ease;
-}
-
-.hero-image-container:hover {
-  box-shadow: 0 24px 48px rgba(31, 72, 80, 0.14);
-}
-
-/* Ambient floating levitation for floating card (signature Framer Motion float loop) */
-@keyframes framer-float {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
+/* Responsive adjustments for Framer elements */
+@media (max-width: 991px) {
+  .framer-float-top {
+    top: -16px;
+    right: 10px;
+    max-width: 220px;
   }
-  50% {
-    transform: translateY(-8px) rotate(0.35deg);
+  .framer-float-bottom {
+    bottom: -16px;
+    left: 10px;
   }
 }
-
-.floating-card-bottom {
-  animation: framer-float 5s ease-in-out infinite;
-  will-change: transform;
-  transition: box-shadow 0.35s ease, border-color 0.35s ease;
-}
-
-.floating-card-bottom:hover {
-  animation-play-state: paused;
-  transform: translateY(-10px) scale(1.03);
-  box-shadow: 0 20px 36px rgba(31, 72, 80, 0.15);
-  border-color: rgba(31, 72, 80, 0.25);
-}
-
 
 @media (max-width: 576px) {
-  .floating-card-bottom {
+  .framer-services-widget {
+    padding: 0.9rem;
+  }
+  .framer-tab {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.72rem;
+  }
+  .framer-tab-bar {
+    gap: 4px;
+  }
+  .framer-float-top {
+    position: static;
+    margin-bottom: 1rem;
+    max-width: 100%;
+    animation: none;
+  }
+  .framer-float-bottom {
     position: static;
     margin-top: 1rem;
+    animation: none;
   }
-}
-
-.floating-card-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: var(--color-teal-subtle);
-  color: var(--color-teal);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.floating-card-title {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  line-height: 1.2;
-}
-
-.floating-card-sub {
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
 }
 
 /* --------------------------------------------------------------------------

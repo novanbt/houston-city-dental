@@ -174,6 +174,59 @@
               </a>
             </div>
 
+            <!-- Framer Motion: Interactive Dental Services Quick-Explorer -->
+            <div class="framer-services-widget" aria-label="Interactive Dental Services Explorer">
+              <div class="framer-services-header">
+                <span class="framer-widget-label">
+                  <span class="framer-sparkle" aria-hidden="true">✦</span>
+                  CLINICAL SPECIALTIES
+                </span>
+                <span class="framer-live-indicator">
+                  <span class="pulse-ring"></span>
+                  <span class="pulse-core"></span>
+                  <span>Live Practice</span>
+                </span>
+              </div>
+
+              <!-- Motion Pill Navigation -->
+              <div class="framer-tab-bar" role="tablist" aria-label="Dental Services Navigation">
+                <button class="framer-tab active" role="tab" aria-selected="true" data-service="invisalign">
+                  <span class="tab-indicator-bg" aria-hidden="true"></span>
+                  <span class="tab-icon">✨</span>
+                  <span class="tab-label">Clear Aligners</span>
+                </button>
+                <button class="framer-tab" role="tab" aria-selected="false" data-service="veneers">
+                  <span class="tab-indicator-bg" aria-hidden="true"></span>
+                  <span class="tab-icon">💎</span>
+                  <span class="tab-label">Cosmetic Veneers</span>
+                </button>
+                <button class="framer-tab" role="tab" aria-selected="false" data-service="implants">
+                  <span class="tab-indicator-bg" aria-hidden="true"></span>
+                  <span class="tab-icon">🛡️</span>
+                  <span class="tab-label">Implants & Crowns</span>
+                </button>
+                <button class="framer-tab" role="tab" aria-selected="false" data-service="preventative">
+                  <span class="tab-indicator-bg" aria-hidden="true"></span>
+                  <span class="tab-icon">🌿</span>
+                  <span class="tab-label">3D Diagnostics</span>
+                </button>
+              </div>
+
+              <!-- Motion Animated Details Card -->
+              <div class="framer-service-preview" id="framerServicePreview">
+                <div class="preview-text-block">
+                  <div class="preview-title" id="previewTitle">Invisalign® Clear Aligners</div>
+                  <p class="preview-desc" id="previewDesc">Custom transparent aligners with precision 3D digital smile simulation. No metal brackets, no impression trays, and completely removable.</p>
+                </div>
+                <div class="preview-action-block">
+                  <a href="#services" class="framer-service-link" id="previewLink">
+                    <span>Clinical Details</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
             <!-- Factual Value Highlights -->
             <div class="hero-highlights">
               <div class="hero-highlight-item">
@@ -197,28 +250,59 @@
             </div>
           </div>
 
-          <!-- Right Column: Editorial Hero Imagery -->
-          <div class="hero-media-wrapper">
-            <div class="hero-image-container">
+          <!-- Right Column: Editorial Hero Imagery with 3D Framer Motion Parallax -->
+          <div class="hero-media-wrapper framer-perspective-container" id="heroMediaWrapper">
+            <div class="hero-image-container framer-3d-card" id="hero3dCard">
               <img 
                 src="assets/images/hero.jpg" 
                 alt="Modern luxury private dental treatment suite at Houston City Dental" 
                 width="720" 
                 height="480"
                 fetchpriority="high"
+                class="framer-hero-img"
               >
+              <div class="framer-glass-glare" aria-hidden="true"></div>
             </div>
             
-            <!-- Floating Credential Card -->
-            <div class="floating-card floating-card-bottom">
-              <div class="floating-card-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                </svg>
+            <!-- Floating Framer Card Top Right: 3D Smile Scan -->
+            <div class="framer-float-card framer-float-top" id="framerCardTop" data-depth="0.08">
+              <div class="framer-card-header">
+                <div class="framer-scan-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                  </svg>
+                </div>
+                <span class="framer-chip-pill">3D DIGITAL SCAN</span>
               </div>
-              <div>
+              <div class="framer-card-body">
+                <div class="framer-title">Digital Smile Preview</div>
+                <div class="framer-sub">Precision Invisalign® & Veneers</div>
+              </div>
+              <div class="framer-card-footer">
+                <span class="framer-status-dot"></span>
+                <span>Immediate 3D Results</span>
+              </div>
+            </div>
+
+            <!-- Floating Framer Card Bottom Left: Clinical Credential & Services -->
+            <div class="framer-float-card framer-float-bottom" id="framerCardBottom" data-depth="-0.06">
+              <div class="framer-card-left">
+                <div class="floating-card-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="framer-card-content">
                 <div class="floating-card-title">Houston City Dental</div>
-                <div class="floating-card-sub">5901 Bellaire Blvd #105, Houston</div>
+                <div class="framer-service-tags">
+                  <span class="service-tag">✦ Clear Aligners</span>
+                  <span class="service-tag">✦ Veneers</span>
+                  <span class="service-tag">✦ Implants</span>
+                </div>
+                <div class="framer-location-sub">5901 Bellaire Blvd #105, Houston</div>
               </div>
             </div>
           </div>
