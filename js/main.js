@@ -93,11 +93,11 @@ function initMarqueeTestimonials() {
 
     // Resume when finger is lifted
     vp.addEventListener('touchend', () => {
-      track.style.animationPlayState = '';
+      track.style.animationPlayState = 'running';
     }, { passive: true });
     
     vp.addEventListener('touchcancel', () => {
-      track.style.animationPlayState = '';
+      track.style.animationPlayState = 'running';
     }, { passive: true });
   });
 }

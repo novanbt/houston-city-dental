@@ -1593,14 +1593,14 @@ h4 {
 }
 
 /* --------------------------------------------------------------------------
-   15. CONTINUOUS HORIZONTAL MARQUEE TESTIMONIALS (3 ROWS, COMPACT CARDS)
+   15. CONTINUOUS HORIZONTAL MARQUEE TESTIMONIALS (MINIMALIST HORIZONTAL CARDS)
    -------------------------------------------------------------------------- */
 .reviews-marquee-section {
   width: 100%;
   max-width: 100vw;
   overflow: hidden !important;
   position: relative;
-  padding-bottom: clamp(4rem, 6vw, 6.5rem);
+  padding-bottom: clamp(3.5rem, 5vw, 5.5rem);
 }
 
 .google-badge-inline {
@@ -1621,7 +1621,7 @@ h4 {
 .marquee-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 14px;
   width: 100%;
   max-width: 100vw;
   overflow: hidden !important;
@@ -1645,90 +1645,114 @@ h4 {
   will-change: transform;
 }
 
-/* Row 1: Right to Left (38s) */
+/* Row 1: Right to Left (32s) */
 .marquee-track-row1 {
-  animation: marquee-scroll-left 38s linear infinite;
+  -webkit-animation: marquee-scroll-left 32s linear infinite;
+  animation: marquee-scroll-left 32s linear infinite;
 }
 
-/* Row 2: Left to Right (44s) */
+/* Row 2: Left to Right (36s) */
 .marquee-track-row2 {
-  animation: marquee-scroll-right 44s linear infinite;
+  -webkit-animation: marquee-scroll-right 36s linear infinite;
+  animation: marquee-scroll-right 36s linear infinite;
 }
 
-/* Row 3: Right to Left (41s) */
+/* Row 3: Right to Left (34s) */
 .marquee-track-row3 {
-  animation: marquee-scroll-left 41s linear infinite;
+  -webkit-animation: marquee-scroll-left 34s linear infinite;
+  animation: marquee-scroll-left 34s linear infinite;
 }
 
-/* Hover to Pause */
-.marquee-viewport:hover .marquee-track {
+/* Hover / Touch to Pause */
+.marquee-viewport:hover .marquee-track,
+.marquee-viewport:active .marquee-track {
   animation-play-state: paused;
+}
+
+@-webkit-keyframes marquee-scroll-left {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 @keyframes marquee-scroll-left {
   0% {
+    -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
   100% {
+    -webkit-transform: translate3d(-50%, 0, 0);
     transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@-webkit-keyframes marquee-scroll-right {
+  0% {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes marquee-scroll-right {
   0% {
+    -webkit-transform: translate3d(-50%, 0, 0);
     transform: translate3d(-50%, 0, 0);
   }
   100% {
+    -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 }
 
-/* Testimonial Card - Compact Dimensions (290–320px width, 300–350px height) */
+/* Minimalist Horizontal Testimonial Card */
 .marquee-card {
-  flex: 0 0 300px;
-  width: 300px;
-  max-width: 320px;
-  height: 320px;
-  min-height: 300px;
-  max-height: 340px;
-  margin-right: 20px;
+  flex: 0 0 350px;
+  width: 350px;
+  max-width: 360px;
+  height: 140px;
+  min-height: 135px;
+  max-height: 145px;
+  margin-right: 18px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   background-color: var(--color-bg-card);
   border: 1px solid var(--border-light);
-  border-radius: 18px;
-  padding: 20px;
+  border-radius: 14px;
+  padding: 14px 18px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
   text-align: left;
-}
-
-.marquee-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(31, 72, 80, 0.09);
-  border-color: rgba(31, 72, 80, 0.22);
-}
-
-.marquee-card-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.65rem;
-  margin-bottom: 0.6rem;
-}
-
-.reviewer-profile {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
   overflow: hidden;
 }
 
+.marquee-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(31, 72, 80, 0.08);
+  border-color: rgba(31, 72, 80, 0.22);
+}
+
+.reviewer-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
 .reviewer-avatar {
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: linear-gradient(135deg, rgba(31, 72, 80, 0.12), rgba(197, 160, 89, 0.22));
   color: var(--color-teal);
@@ -1741,14 +1765,8 @@ h4 {
   border: 1px solid rgba(31, 72, 80, 0.12);
 }
 
-.reviewer-info {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
 .reviewer-name {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--color-text-primary);
   margin: 0;
@@ -1758,121 +1776,54 @@ h4 {
   text-overflow: ellipsis;
 }
 
-.reviewer-meta {
-  font-size: 0.72rem;
-  color: var(--color-text-muted);
-  margin: 0;
-  line-height: 1.2;
-}
-
-.review-stars-badge {
-  flex-shrink: 0;
-  font-size: 0.82rem;
-  letter-spacing: 1px;
-}
-
-.review-treatment-pill {
-  display: inline-flex;
-  align-items: center;
-  align-self: flex-start;
-  gap: 0.3rem;
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: var(--color-teal);
-  background-color: rgba(20, 184, 166, 0.08);
-  padding: 0.2rem 0.55rem;
-  border-radius: var(--border-radius-full);
-  margin-bottom: 0.75rem;
-}
-
-.marquee-card-quote {
+.review-text {
   font-family: var(--font-sans);
   font-size: 0.82rem;
-  line-height: 1.55;
+  line-height: 1.45;
   color: var(--color-text-secondary);
-  margin: 0 0 0.85rem 0;
-  flex-grow: 1;
+  margin: 0;
   display: -webkit-box;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
-}
-
-.marquee-card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 0.65rem;
-  border-top: 1px solid var(--border-light);
-  font-size: 0.72rem;
-}
-
-.review-date-label {
-  color: var(--color-text-muted);
-  font-weight: 500;
-}
-
-.marquee-google-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  color: var(--color-teal);
-  font-weight: 600;
-  text-decoration: none;
-  transition: color var(--transition-fast);
-}
-
-.marquee-google-link:hover {
-  color: var(--color-brass-dark);
-  text-decoration: underline;
+  text-overflow: ellipsis;
 }
 
 /* Tablet adjustments */
 @media (max-width: 991px) {
   .marquee-card {
-    flex: 0 0 280px;
-    width: 280px;
-    height: 310px;
-    margin-right: 18px;
-    padding: 18px;
+    flex: 0 0 310px;
+    width: 310px;
+    height: 135px;
+    margin-right: 14px;
+    padding: 12px 16px;
   }
 }
 
-/* Mobile adjustments (compact, strictly NO horizontal overflow) */
+/* Mobile adjustments (compact horizontal cards, strictly NO horizontal page overflow) */
 @media (max-width: 576px) {
   .marquee-container {
-    gap: 16px;
+    gap: 12px;
   }
   .marquee-card {
-    flex: 0 0 270px;
-    width: 270px;
-    height: 300px;
-    margin-right: 16px;
-    padding: 16px;
+    flex: 0 0 280px;
+    width: 280px;
+    height: 130px;
+    margin-right: 12px;
+    padding: 12px 14px;
   }
-  .marquee-card-quote {
-    -webkit-line-clamp: 5;
-    font-size: 0.8rem;
+  .review-text {
+    -webkit-line-clamp: 3;
+    font-size: 0.78rem;
   }
 }
 
-/* Accessibility: prefers-reduced-motion */
+/* Reduced motion accessibility: keep movement gentle rather than completely static */
 @media (prefers-reduced-motion: reduce) {
   .marquee-track-row1,
   .marquee-track-row2,
   .marquee-track-row3 {
-    animation: none !important;
-    transform: none !important;
-  }
-  .marquee-viewport {
-    mask-image: none !important;
-    -webkit-mask-image: none !important;
-    overflow-x: auto !important;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-  }
-  .marquee-viewport::-webkit-scrollbar {
-    display: none !important;
+    animation-duration: 60s !important;
   }
 }
 
