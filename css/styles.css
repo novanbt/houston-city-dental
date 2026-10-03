@@ -657,6 +657,90 @@ h4 {
   left: 20px;
 }
 
+/* --------------------------------------------------------------------------
+   FRAMER MOTION ENHANCEMENTS FOR HERO SECTION
+   Spring physics, continuous ambient levitation, and interactive micro-interactions
+   -------------------------------------------------------------------------- */
+:root {
+  --framer-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --framer-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hero-section {
+  perspective: 1200px;
+}
+
+.hero-rating-badge {
+  transition: transform 0.35s var(--framer-bounce), box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+.hero-rating-badge:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.hero-cta-group .btn {
+  transition: transform 0.35s var(--framer-bounce), box-shadow 0.35s ease, background-color 0.2s ease, color 0.2s ease;
+  will-change: transform;
+}
+
+.hero-cta-group .btn:hover {
+  transform: translateY(-2px) scale(1.025);
+}
+
+.hero-cta-group .btn:active {
+  transform: scale(0.97);
+}
+
+.hero-highlight-item {
+  transition: transform 0.3s var(--framer-bounce);
+  will-change: transform;
+}
+
+.hero-highlight-item:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.hero-media-wrapper {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.hero-image-container {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: box-shadow 0.5s ease;
+}
+
+.hero-image-container:hover {
+  box-shadow: 0 24px 48px rgba(31, 72, 80, 0.14);
+}
+
+/* Ambient floating levitation for floating card (signature Framer Motion float loop) */
+@keyframes framer-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.35deg);
+  }
+}
+
+.floating-card-bottom {
+  animation: framer-float 5s ease-in-out infinite;
+  will-change: transform;
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.floating-card-bottom:hover {
+  animation-play-state: paused;
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 36px rgba(31, 72, 80, 0.15);
+  border-color: rgba(31, 72, 80, 0.25);
+}
+
+
 @media (max-width: 576px) {
   .floating-card-bottom {
     position: static;
