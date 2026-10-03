@@ -679,17 +679,18 @@ h4 {
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 440px;
+  max-width: 480px;
+  margin-top: -35px;
   animation: heroToothFloat 6s ease-in-out infinite;
+  z-index: 5;
 }
 
 .hero-tooth-img {
   width: 100%;
   height: auto;
-  max-width: 440px;
+  max-width: 480px;
   object-fit: contain;
-  filter: drop-shadow(0 15px 35px rgba(0, 140, 255, 0.16));
-  border-radius: 20px;
+  filter: drop-shadow(0 20px 45px rgba(0, 140, 255, 0.22));
   user-select: none;
   pointer-events: none;
 }
