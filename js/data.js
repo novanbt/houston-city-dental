@@ -432,35 +432,47 @@ export const CLINIC_DATA = {
     }
   ],
 
-  // Frequently Asked Questions
+    // Frequently Asked Questions
   faqs: [
     {
-      question: "How do I book an appointment?",
-      answer: "You can request an appointment directly through our online booking form on this website in four simple steps. Simply choose your service, preferred day and time, and contact info. Our team will review your request and confirm your reservation promptly via your preferred contact method."
+      question: "How do I schedule an appointment with Houston City Dental?",
+      answer: "You can request an appointment directly through our online booking system in four simple steps, choosing your preferred service and convenient time window. Alternatively, you may contact our Bellaire office at (832) 582-7171. Our patient concierge team will promptly confirm your reserved suite and address any pre-visit questions."
     },
     {
-      question: "What should I bring to my first appointment?",
-      answer: "For your initial visit to Houston City Dental, please bring a valid photo ID, your dental insurance card (if applicable), and a list of any current medications or relevant medical history. If you have recent dental X-rays from another practice within the last six months, please let us know so we can assist in requesting them."
+      question: "What dental insurance plans and payment options do you accept?",
+      answer: "We accept most major PPO dental insurance plans and handle all claim submissions directly to maximize your benefits. For elective cosmetic procedures and out-of-pocket balances, we provide transparent cost estimates upfront and partner with CareCredit for flexible, interest-free financing options."
     },
     {
-      question: "How long does a typical appointment take?",
-      answer: "A standard comprehensive examination and cleaning generally takes 45 to 60 minutes. Cosmetic consultations and restorative procedures typically take between 60 and 90 minutes. We schedule ample time so your appointment is never rushed."
+      question: "What can I expect during my initial comprehensive examination?",
+      answer: "Your first visit lasts approximately 45 to 60 minutes in a relaxing private suite. We perform a complete diagnostic evaluation featuring high-definition 3D digital imaging, low-radiation X-rays, gentle periodontal charting, and an oral cancer screening, followed by a personalized consultation with our doctor."
     },
     {
-      question: "Are you accepting new patients?",
-      answer: "Yes, Houston City Dental warmly welcomes new patients and families from Houston, Bellaire, and surrounding communities. We look forward to meeting you and helping you achieve your oral health goals."
+      question: "Do you provide same-day emergency dental care in Houston?",
+      answer: "Yes, we reserve dedicated daily appointments for dental emergencies, including severe toothaches, cracked or chipped teeth, lost crowns, and acute trauma. If you are experiencing oral pain or an emergency, call our Houston office immediately at (832) 582-7171 for prompt relief."
     },
     {
-      question: "What safety and hygiene standards do you maintain?",
-      answer: "We adhere strictly to OSHA and CDC healthcare sterilization guidelines. Our clinic utilizes hospital-grade air filtration, multi-stage autoclave instrument sterilization, and single-use protective barriers for every patient."
+      question: "How can I maintain my teeth whitening and cosmetic results?",
+      answer: "To prolong the brilliance of in-office whitening or porcelain veneers, we recommend minimizing exposure to dark beverages and tobacco, especially during the initial 48 hours. Routine professional cleanings every six months, good oral hygiene, and custom maintenance trays keep your smile looking luminous for years."
     },
     {
-      question: "Can I request a specific appointment time?",
-      answer: "Yes! In our online booking form, you can select whether you prefer morning or afternoon slots, as well as specific available time windows. We do our utmost to accommodate your preferred schedule."
+      question: "Are dental implants the right replacement option for missing teeth?",
+      answer: "Dental implants are widely considered the gold standard for tooth replacement because they integrate directly with your jawbone, preserving bone structure and preventing facial sagging. Implants look, feel, and function just like natural teeth, offering a permanent solution with proper care and maintenance."
     },
     {
-      question: "How can I contact the clinic directly?",
-      answer: "You can call our Houston office directly at (832) 582-7171 during business hours, or visit us at 5901 Bellaire Blvd, Suite 105, Houston, TX 77081. You can also send a message via our contact form."
+      question: "What comfort amenities and sedation options do you offer?",
+      answer: "We understand dental anxiety and have designed a quiet, spa-inspired clinical environment. Our treatment suites feature plush ergonomic memory foam chairs, noise-canceling headphones, warm blankets, and gentle local anesthesia techniques. Mild relaxation sedation is also available upon request."
+    },
+    {
+      question: "How frequently should I schedule preventative cleanings and exams?",
+      answer: "We advise healthy adult and pediatric patients to schedule a preventative hygiene visit and examination every six months. Patients with a history of periodontal disease, restorative treatments, or orthodontic alignment may benefit from tailored three-to-four-month maintenance schedules."
+    },
+    {
+      question: "What sterilization and infection control protocols are practiced?",
+      answer: "Houston City Dental strictly adheres to and exceeds CDC and OSHA infection control guidelines. All surgical instruments undergo hospital-grade, multi-stage autoclave sterilization with independent biological monitoring. Every operatory is thoroughly disinfected with medical-grade barriers replaced after each patient."
+    },
+    {
+      question: "What is the difference between porcelain veneers and composite bonding?",
+      answer: "Composite bonding is an affordable, single-visit solution using tooth-colored resin to correct minor chips, gaps, or slight discoloration. Porcelain veneers are custom-crafted, ultra-thin ceramic shells offering superior stain resistance, lifelike optical translucency, and lasting durability for complete smile transformations."
     }
   ]
 };

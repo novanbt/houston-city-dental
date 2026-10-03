@@ -9,16 +9,26 @@
  * - Contact quick-form handler
  */
 
-import { CLINIC_DATA } from './data.js?v=2.3.0';
+import { CLINIC_DATA } from './data.js?v=2.5.0';
 
-document.addEventListener('DOMContentLoaded', () => {
-  initStickyHeader();
-  initMobileNav();
-  initMarqueeTestimonials();
-  initFloatingBarWatcher();
-  initContactForm();
-  initHeroFramerMotion();
-});
+function boot() {
+  const safeRun = (fn, name) => {
+    try { fn(); } catch (err) { console.warn('Error initializing ' + name + ':', err); }
+  };
+  safeRun(initStickyHeader, 'StickyHeader');
+  safeRun(initMobileNav, 'MobileNav');
+  safeRun(initMarqueeTestimonials, 'MarqueeTestimonials');
+  safeRun(initFloatingBarWatcher, 'FloatingBarWatcher');
+  safeRun(initContactForm, 'ContactForm');
+  safeRun(initHeroFramerMotion, 'HeroFramerMotion');
+  safeRun(initFaqAccordion, 'FaqAccordion');
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', boot);
+} else {
+  boot();
+}
 
 /* --------------------------------------------------------------------------
    1. STICKY HEADER SCROLL LISTENER
@@ -208,4 +218,80 @@ function initHeroFramerMotion() {
       }, 600);
     });
   }
+}
+
+/* --------------------------------------------------------------------------
+   7. MINIMAL TWO-COLUMN ANIMATED FAQ ACCORDION (MUTUALLY EXCLUSIVE)
+   -------------------------------------------------------------------------- */
+function initFaqAccordion() {
+  const faqGrid = document.querySelector('.faq-two-col-grid');
+  if (!faqGrid || faqGrid.dataset.faqInitialized === 'true') return;
+  faqGrid.dataset.faqInitialized = 'true';
+
+  const faqItems = Array.from(faqGrid.querySelectorAll('.faq-item'));
+  if (!faqItems.length) return;
+
+  function closeItem(item) {
+    item.classList.remove('is-open');
+    const trigger = item.querySelector('.faq-trigger');
+    const panel = item.querySelector('.faq-panel');
+    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    if (panel) panel.setAttribute('aria-hidden', 'true');
+  }
+
+  function openItem(item) {
+    // Mutually exclusive: close all other items first
+    faqItems.forEach((other) => {
+      if (other !== item && other.classList.contains('is-open')) {
+        closeItem(other);
+      }
+    });
+
+    item.classList.add('is-open');
+    const trigger = item.querySelector('.faq-trigger');
+    const panel = item.querySelector('.faq-panel');
+    if (trigger) trigger.setAttribute('aria-expanded', 'true');
+    if (panel) panel.setAttribute('aria-hidden', 'false');
+  }
+
+  function toggleItem(item) {
+    if (item.classList.contains('is-open')) {
+      closeItem(item);
+    } else {
+      openItem(item);
+    }
+  }
+
+  faqItems.forEach((item) => {
+    // Single click handler on the FAQ item (handles row, question, and '+' icon clicks)
+    item.addEventListener('click', (e) => {
+      // Do not toggle if the user is interacting with content inside the open answer panel
+      if (e.target.closest('.faq-panel')) return;
+      toggleItem(item);
+    });
+
+    // Keyboard support on the trigger button (Enter/Space handled natively, Arrow keys for roving focus)
+    const trigger = item.querySelector('.faq-trigger');
+    if (trigger) {
+      trigger.addEventListener('keydown', (e) => {
+        const allTriggers = faqItems.map((it) => it.querySelector('.faq-trigger')).filter(Boolean);
+        const idx = allTriggers.indexOf(trigger);
+        if (idx === -1) return;
+
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          allTriggers[(idx + 1) % allTriggers.length]?.focus();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          allTriggers[(idx - 1 + allTriggers.length) % allTriggers.length]?.focus();
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          allTriggers[0]?.focus();
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          allTriggers[allTriggers.length - 1]?.focus();
+        }
+      });
+    }
+  });
 }
