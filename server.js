@@ -68,10 +68,11 @@ const requestHandler = (req, res) => {
 
     const ext = path.extname(safePath).toLowerCase();
     const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+    const isStaticAsset = ['.png', '.jpg', '.jpeg', '.webp', '.svg', '.woff', '.woff2'].includes(ext);
 
     res.writeHead(200, {
       'Content-Type': contentType,
-      'Cache-Control': 'public, max-age=3600',
+      'Cache-Control': isStaticAsset ? 'public, max-age=86400' : 'no-cache, must-revalidate',
       'Access-Control-Allow-Origin': '*'
     });
     res.end(content);

@@ -15,12 +15,12 @@
     },
     {
       "src": "/css/(.*)",
-      "headers": { "cache-control": "public, max-age=86400, stale-while-revalidate=604800" },
+      "headers": { "cache-control": "public, max-age=0, must-revalidate" },
       "dest": "/css/$1"
     },
     {
       "src": "/js/(.*)",
-      "headers": { "cache-control": "public, max-age=86400, stale-while-revalidate=604800" },
+      "headers": { "cache-control": "public, max-age=0, must-revalidate" },
       "dest": "/js/$1"
     },
     {

@@ -9,7 +9,7 @@
  * - Contact quick-form handler
  */
 
-import { CLINIC_DATA } from './data.js';
+import { CLINIC_DATA } from './data.js?v=2.2.0';
 
 document.addEventListener('DOMContentLoaded', () => {
   initStickyHeader();
@@ -192,6 +192,9 @@ function initTestimonialCarousel() {
       }
     }, { passive: true });
   }
+
+  // Initialize first testimonial
+  updateTestimonial(0);
 }
 
 /* --------------------------------------------------------------------------

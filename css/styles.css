@@ -1723,12 +1723,14 @@ h4 {
 
 .testimonial-dots {
   display: flex;
+  align-items: center;
   gap: 0.35rem;
-  max-width: 220px;
+  max-width: 280px;
   overflow-x: auto;
-  padding: 4px 4px;
+  padding: 4px 6px;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  scroll-behavior: smooth;
 }
 
 .testimonial-dots::-webkit-scrollbar {
