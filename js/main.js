@@ -79,30 +79,25 @@ function initMobileNav() {
    Seamless looping marquee with touch-pause support for mobile
    -------------------------------------------------------------------------- */
 function initMarqueeTestimonials() {
-  const marqueeRows = document.querySelectorAll('.marquee-row');
-  if (!marqueeRows.length) return;
+  const marqueeViewports = document.querySelectorAll('.marquee-viewport');
+  if (!marqueeViewports.length) return;
 
-  marqueeRows.forEach((row) => {
-    const tracks = row.querySelectorAll('.marquee-track');
+  marqueeViewports.forEach((vp) => {
+    const track = vp.querySelector('.marquee-track');
+    if (!track) return;
     
     // Pause on touch start for mobile devices
-    row.addEventListener('touchstart', () => {
-      tracks.forEach(track => {
-        track.style.animationPlayState = 'paused';
-      });
+    vp.addEventListener('touchstart', () => {
+      track.style.animationPlayState = 'paused';
     }, { passive: true });
 
     // Resume when finger is lifted
-    row.addEventListener('touchend', () => {
-      tracks.forEach(track => {
-        track.style.animationPlayState = '';
-      });
+    vp.addEventListener('touchend', () => {
+      track.style.animationPlayState = '';
     }, { passive: true });
     
-    row.addEventListener('touchcancel', () => {
-      tracks.forEach(track => {
-        track.style.animationPlayState = '';
-      });
+    vp.addEventListener('touchcancel', () => {
+      track.style.animationPlayState = '';
     }, { passive: true });
   });
 }
