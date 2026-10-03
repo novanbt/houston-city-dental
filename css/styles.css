@@ -711,6 +711,19 @@ h4 {
   z-index: 3;
 }
 
+.hero-stat-link {
+  text-decoration: none;
+  transition: transform var(--transition-fast);
+}
+
+.hero-stat-link:hover {
+  transform: translateX(4px);
+}
+
+.hero-stat-link:hover .hero-stat-desc {
+  color: var(--color-teal);
+}
+
 .hero-stat-card {
   display: flex;
   flex-direction: column;

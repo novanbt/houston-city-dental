@@ -40,7 +40,7 @@ export const CLINIC_DATA = {
       latitude: 29.7048544,
       longitude: -95.4853621
     },
-    googleMapsUrl: "https://maps.app.goo.gl/pHwibjkjBnfes9YZ9",
+    googleMapsUrl: "https://maps.app.goo.gl/JcTWcnQbtRuLJPDJA",
     directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=5901+Bellaire+Blvd+Suite+105+Houston+TX+77081"
   },
 
