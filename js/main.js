@@ -9,12 +9,12 @@
  * - Contact quick-form handler
  */
 
-import { CLINIC_DATA } from './data.js?v=2.2.0';
+import { CLINIC_DATA } from './data.js?v=2.3.0';
 
 document.addEventListener('DOMContentLoaded', () => {
   initStickyHeader();
   initMobileNav();
-  initTestimonialCarousel();
+  initMarqueeTestimonials();
   initFloatingBarWatcher();
   initContactForm();
 });
@@ -75,126 +75,36 @@ function initMobileNav() {
 }
 
 /* --------------------------------------------------------------------------
-   3. TESTIMONIAL CAROUSEL
+   3. MARQUEE TESTIMONIALS INTERACTION
+   Seamless looping marquee with touch-pause support for mobile
    -------------------------------------------------------------------------- */
-function initTestimonialCarousel() {
-  const testimonials = CLINIC_DATA.testimonials;
-  const quoteEl = document.getElementById('testimonial-quote');
-  const authorEl = document.getElementById('testimonial-author');
-  const locEl = document.getElementById('testimonial-location');
-  const treatmentEl = document.getElementById('testimonial-treatment');
-  const starsEl = document.getElementById('testimonial-stars');
-  const linkEl = document.getElementById('testimonial-link');
-  const counterEl = document.getElementById('testimonial-counter');
-  const prevBtn = document.getElementById('prev-testimonial');
-  const nextBtn = document.getElementById('next-testimonial');
-  const dotsContainer = document.getElementById('testimonial-dots');
+function initMarqueeTestimonials() {
+  const marqueeRows = document.querySelectorAll('.marquee-row');
+  if (!marqueeRows.length) return;
 
-  if (!quoteEl || !testimonials || testimonials.length === 0) return;
-
-  let currentIndex = 0;
-
-  // Render dots
-  if (dotsContainer) {
-    dotsContainer.innerHTML = '';
-    testimonials.forEach((_, idx) => {
-      const dot = document.createElement('button');
-      dot.className = `dot ${idx === 0 ? 'is-active' : ''}`;
-      dot.setAttribute('aria-label', `Go to review ${idx + 1}`);
-      dot.addEventListener('click', () => updateTestimonial(idx));
-      dotsContainer.appendChild(dot);
-    });
-  }
-
-  function updateTestimonial(newIndex) {
-    currentIndex = newIndex;
-    const item = testimonials[currentIndex];
-
-    // Fade effect
-    const card = document.querySelector('.testimonial-card-single');
-    if (card) {
-      card.style.opacity = '0.4';
-      card.style.transform = 'translateY(4px)';
-    }
-
-    setTimeout(() => {
-      quoteEl.textContent = `“${item.quote}”`;
-      authorEl.textContent = item.author;
-      locEl.textContent = `${item.location} • ${item.date}`;
-      if (treatmentEl) treatmentEl.textContent = item.treatment;
-
-      // Update stars
-      if (starsEl) {
-        const rating = item.rating || 5;
-        starsEl.textContent = '★'.repeat(rating) + '☆'.repeat(5 - rating);
-      }
-
-      // Update external Google Review link
-      if (linkEl) {
-        linkEl.href = item.googleUrl || '#';
-        linkEl.setAttribute('aria-label', `View ${item.author}'s review on Google Maps`);
-      }
-
-      // Update slide counter
-      if (counterEl) {
-        counterEl.textContent = `${currentIndex + 1} / ${testimonials.length}`;
-      }
-
-      // Update dots & scroll active dot into view
-      if (dotsContainer) {
-        dotsContainer.querySelectorAll('.dot').forEach((d, idx) => {
-          if (idx === currentIndex) {
-            d.classList.add('is-active');
-            d.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-          } else {
-            d.classList.remove('is-active');
-          }
-        });
-      }
-
-      if (card) {
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0)';
-      }
-    }, 150);
-  }
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      const nextIdx = (currentIndex - 1 + testimonials.length) % testimonials.length;
-      updateTestimonial(nextIdx);
-    });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      const nextIdx = (currentIndex + 1) % testimonials.length;
-      updateTestimonial(nextIdx);
-    });
-  }
-
-  // Touch swipe support for mobile
-  const wrapper = document.querySelector('.testimonials-wrapper');
-  if (wrapper) {
-    let touchStartX = 0;
-    let touchEndX = 0;
-    wrapper.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
+  marqueeRows.forEach((row) => {
+    const tracks = row.querySelectorAll('.marquee-track');
+    
+    // Pause on touch start for mobile devices
+    row.addEventListener('touchstart', () => {
+      tracks.forEach(track => {
+        track.style.animationPlayState = 'paused';
+      });
     }, { passive: true });
-    wrapper.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      if (touchStartX - touchEndX > 50) {
-        const nextIdx = (currentIndex + 1) % testimonials.length;
-        updateTestimonial(nextIdx);
-      } else if (touchEndX - touchStartX > 50) {
-        const nextIdx = (currentIndex - 1 + testimonials.length) % testimonials.length;
-        updateTestimonial(nextIdx);
-      }
-    }, { passive: true });
-  }
 
-  // Initialize first testimonial
-  updateTestimonial(0);
+    // Resume when finger is lifted
+    row.addEventListener('touchend', () => {
+      tracks.forEach(track => {
+        track.style.animationPlayState = '';
+      });
+    }, { passive: true });
+    
+    row.addEventListener('touchcancel', () => {
+      tracks.forEach(track => {
+        track.style.animationPlayState = '';
+      });
+    }, { passive: true });
+  });
 }
 
 /* --------------------------------------------------------------------------

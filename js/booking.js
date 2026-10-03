@@ -9,7 +9,7 @@
  * - Clear integration point for future production booking backend
  */
 
-import { CLINIC_DATA } from './data.js?v=2.2.0';
+import { CLINIC_DATA } from './data.js?v=2.3.0';
 
 class DentalBookingManager {
   constructor() {
