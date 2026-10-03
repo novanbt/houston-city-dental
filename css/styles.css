@@ -1664,6 +1664,43 @@ h4 {
   margin-top: 2rem;
 }
 
+.testimonial-google-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-teal);
+  text-decoration: none;
+  margin-top: 0.6rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background-color: rgba(20, 184, 166, 0.08);
+  border: 1px solid rgba(20, 184, 166, 0.2);
+  transition: all var(--transition-fast);
+}
+
+.testimonial-google-btn:hover {
+  background-color: var(--color-teal);
+  color: #FFFFFF;
+  border-color: var(--color-teal);
+}
+
+.testimonial-nav-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.testimonial-counter {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+}
+
 .nav-arrow-btn {
   width: 44px;
   height: 44px;
@@ -1686,21 +1723,33 @@ h4 {
 
 .testimonial-dots {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.35rem;
+  max-width: 220px;
+  overflow-x: auto;
+  padding: 4px 4px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.testimonial-dots::-webkit-scrollbar {
+  display: none;
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
   border-radius: 50%;
   background-color: var(--border-medium);
   cursor: pointer;
   transition: all var(--transition-fast);
+  border: none;
+  padding: 0;
 }
 
 .dot.is-active {
   background-color: var(--color-teal);
-  width: 24px;
+  width: 18px;
   border-radius: 4px;
 }
 

@@ -913,24 +913,33 @@
           <p class="lead-text">
             Verified patient feedback reflecting the care and dedication of the Houston City Dental team.
           </p>
+          <div class="google-badge-inline" style="margin-top: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; background: var(--color-bg-card); padding: 0.4rem 1rem; border-radius: 999px; border: 1px solid var(--border-light); font-size: 0.85rem; font-weight: 600; color: var(--color-text-primary);">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3h3.86c2.26-2.09 3.685-5.17 3.685-9.09z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09C3.26 21.3 7.37 24 12 24z"/><path fill="#FBBC05" d="M5.27 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.98-3.09z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.37 0 3.26 2.7 1.29 6.62l3.98 3.09c.95-2.85 3.6-4.96 6.73-4.96z"/></svg>
+            <span><strong style="color: var(--color-brass);">4.9</strong> ★★★★★</span>
+            <span style="color: var(--color-text-muted);">• 430+ Google Reviews</span>
+          </div>
         </div>
 
         <div class="testimonials-wrapper">
           <div class="testimonial-card-single" aria-live="polite">
             <div class="quote-mark" aria-hidden="true">“</div>
-            <div class="stars-gold" style="margin-bottom: 1rem;" aria-hidden="true">★★★★★</div>
+            <div id="testimonial-stars" class="stars-gold" style="margin-bottom: 1rem;" aria-hidden="true">★★★★★</div>
             
             <p id="testimonial-quote" class="testimonial-quote">
-              “Houston City Dental is hands down the best dental experience I have ever had. The office is spotlessly clean, calm, and welcoming. The team took the time to explain everything on the digital monitor. Zero pain and zero anxiety.”
+              “Third time here and it has been such a pleasure. I usually hate dentists but the employees here truly care about getting everyone on the path to the healthiest their teeth can be and do everything to make sure you are comfortable. I recommend anyone who wants any dental work to check them about and bring your kids as well. Great workers here and the dentist is amazing!”
             </p>
 
             <div class="testimonial-author-box">
-              <span id="testimonial-author" class="author-name">Maria S.</span>
+              <span id="testimonial-author" class="author-name">Emily Marin</span>
               <span id="testimonial-location" class="author-loc">Houston, TX • Verified Google Review</span>
               <span id="testimonial-treatment" class="review-verified-tag">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                General & Preventative Care
+                Family & Pediatric Dentistry
               </span>
+              <a id="testimonial-link" href="https://maps.app.goo.gl/gs5PoA4EQGeJkToeA" target="_blank" rel="noopener noreferrer" class="testimonial-google-btn" aria-label="View verified review on Google Maps">
+                View on Google Maps
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
             </div>
           </div>
 
@@ -939,7 +948,10 @@
             <button id="prev-testimonial" class="nav-arrow-btn" aria-label="Previous testimonial">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
             </button>
-            <div id="testimonial-dots" class="testimonial-dots" role="tablist" aria-label="Testimonial slides"></div>
+            <div class="testimonial-nav-center">
+              <span id="testimonial-counter" class="testimonial-counter" aria-live="polite">1 / 30</span>
+              <div id="testimonial-dots" class="testimonial-dots" role="tablist" aria-label="Testimonial slides"></div>
+            </div>
             <button id="next-testimonial" class="nav-arrow-btn" aria-label="Next testimonial">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </button>
