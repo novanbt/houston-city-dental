@@ -27,7 +27,8 @@ const MIME_TYPES = {
   '.mp3': 'audio/mpeg',
   '.wav': 'audio/wav',
   '.pdf': 'application/pdf',
-  '.txt': 'text/plain; charset=UTF-8'
+  '.txt': 'text/plain; charset=UTF-8',
+  '.webmanifest': 'application/manifest+json'
 };
 
 const requestHandler = (req, res) => {
